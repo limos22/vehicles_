@@ -31,10 +31,10 @@ with st.sidebar:
 st.dataframe(fil_vehicles)
 
 st.header('Brouse through:')
-
+#checkbox to show full dataframe
 if st.checkbox('Full Dataframe'):
     vehicles
-
+#checkbox to show scatterplots
 if st.checkbox('Scatterplots'):
     #scatterplots
     st.header('Scatterplots')
@@ -48,11 +48,16 @@ if st.checkbox('Scatterplots'):
 if st.checkbox('Histograms'):
     st.header('Histograms')
 
-    fig = px.histogram(vehicles, x='price', title='Car Prices')
+    fig = px.histogram(vehicles, x='price', color= 'Make', title='Car Prices')
     st.plotly_chart(fig)
 
-    fig = px.histogram(vehicles, x='model_year', title='Car Model Year')
+    fig = px.histogram(vehicles, x='Make', color= 'model_year', title='Car Make')
     st.plotly_chart(fig)
 
-    fig = px.histogram(vehicles, x='odometer', title='Car Odometer')
+    fig = px.histogram(vehicles, x='Model', title='Car Model')
     st.plotly_chart(fig)
+
+    fig = px.histogram(vehicles, x='odometer', color= 'Make', title='Car Odometer')
+    st.plotly_chart(fig)
+
+st.header('Price Distribution Comparision')
