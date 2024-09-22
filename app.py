@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 st.title('Vehicles Breakdown Explorer')
 
 st.markdown("""
-            This app gives a fresh look to a database of cars for sale in 2018.
+            This app gives a fresh look to a database of cars for sale.
             * **python libraries:** pandas, streamlit, plotly-express
             """)
 st.header('Filter by Make and Color through Sidebar Selections:')
@@ -58,6 +58,6 @@ if st.checkbox('Histograms'):
 
     fig = px.histogram(vehicles, x='odometer', color= 'Make', title='Car Odometer')
     st.plotly_chart(fig)
-    
 
-st.header('Price Distribution Comparision')
+
+#st.header('Price Distribution Comparision')
