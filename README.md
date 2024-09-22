@@ -2,7 +2,7 @@
 
 This project is a tool to analyze and interpret  a US population dataset of cars for sale. There are plots and charts showing the distribution of vehicles being sold along with a filtering option through the sidebar.I develop and deployed this web application to a cloud service so that it is accessible to the public.
 
-After EDA on the dataset i moved onto creating plots and graphs of the vehicles dataframe with plotly express and organixedthe layout with streamlit funstions.
+After reading the CSV file with pandas and did some EDA on the dataset I moved onto creating plots and graphs of the vehicles dataframe. I used plotly express and organized the layout with streamlit methods and functions.
 
 # instructions on how to run app locally
 1. Clone project to your local device.
