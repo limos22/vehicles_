@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-from matplotlib import pyplot as plt
+
 
 st.title('Vehicles Breakdown Explorer')
 
