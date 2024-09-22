@@ -18,7 +18,7 @@ def car_data():
     return vehicles
 vehicles = car_data()
 #sidebar
-st.sidebar.header('User Input Features')
+st.sidebar.header('User Input Filtering')
 with st.sidebar:
     selected = st.multiselect('Select Make', vehicles['Make'].unique())
     colors = st.multiselect("Select Color", vehicles['paint_color'].unique())
@@ -36,7 +36,6 @@ if st.checkbox('Full Dataframe'):
     vehicles
 #checkbox to show scatterplots
 if st.checkbox('Scatterplots'):
-    #scatterplots
     st.header('Scatterplots')
     fig = px.scatter(vehicles, x='odometer', y= 'price', title= 'Price vs Odometer')
     st.plotly_chart(fig)
@@ -59,5 +58,6 @@ if st.checkbox('Histograms'):
 
     fig = px.histogram(vehicles, x='odometer', color= 'Make', title='Car Odometer')
     st.plotly_chart(fig)
+    
 
 st.header('Price Distribution Comparision')
