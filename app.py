@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 st.title('Vehicles Breakdown Explorer')
 
 st.markdown("""
-            This app gives a fresh look to a database of cars for sale.
+            This app gives a fresh look to a database of car listings for sale.
             * **python libraries:** pandas, streamlit, plotly-express
             """)
 st.header('Filter by Make and Color through Sidebar Selections:')
@@ -60,4 +60,25 @@ if st.checkbox('Histograms'):
     st.plotly_chart(fig)
 
 
-#st.header('Price Distribution Comparision')
+st.header('Price Distribution Comparision')
+uni_make= vehicles['Make'].unique()
+
+col1, col2 = st.columns(2)
+with col1:
+    makefil = st.selectbox('Select Base Make', options=uni_make)
+with col2:
+    makefil2 = st.selectbox('Select Comparison Make', options=uni_make)
+
+
+filtered = vehicles[vehicles['Make'] == makefil]
+filtered2 = vehicles[vehicles['Make'] ==makefil2]
+#st.write(filtered)
+fig, ax = plt.subplots()
+ax.hist(filtered['price'], alpha=0.8, label=makefil, bins=40)
+ax.hist(filtered2['price'], alpha=0.8, label=makefil2, bins=40)
+ax.legend()
+ax.set_title('Price Distribution Comparison Histogram')
+ax.set_xlabel('Price')
+ax.set_ylabel('Frequency')
+# Display plot
+st.write(fig)
