@@ -15,6 +15,10 @@ def car_data():
     vehicles = pd.read_csv('vehicles_us.csv')
     vehicles['Make'] = vehicles['model'].str.split().str[0]
     vehicles['Model'] = vehicles['model'].str.split().str[~0]
+    vehicles['cylinders'] = vehicles[['cylinders', 'type']].groupby('type').transform(lambda x:x.fillna(x.median()))
+    vehicles['model_year'] = vehicles[['model_year', 'type']].groupby('type').transform(lambda x:x.fillna(x.median()))
+    vehicles['odometer'] = vehicles[['odometer', 'type']].groupby('type').transform(lambda x:x.fillna(x.median()))
+
     return vehicles
 vehicles = car_data()
 #sidebar
@@ -72,7 +76,7 @@ with col2:
 
 filtered = vehicles[vehicles['Make'] == makefil]
 filtered2 = vehicles[vehicles['Make'] ==makefil2]
-#st.write(filtered)
+#st.write
 fig, ax = plt.subplots()
 ax.hist(filtered['price'], alpha=0.8, label=makefil, bins=40)
 ax.hist(filtered2['price'], alpha=0.8, label=makefil2, bins=40)
